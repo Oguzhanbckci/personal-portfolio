@@ -1,0 +1,13 @@
+---
+skills:
+  - HTML
+  - CSS
+  - JavaScript
+  - React
+  - Next.js
+  - Git
+  - GitHub
+  - C#
+  - SQL Server
+  - Python
+---

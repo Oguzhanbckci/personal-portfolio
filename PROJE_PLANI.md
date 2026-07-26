@@ -4,7 +4,7 @@
 
 Bu proje, staj kapsamında Next.js, GitHub, Vercel ve Firebase araçlarını uçtan uca öğrenmek amacıyla geliştirilen kişisel bir portfolyo sitesidir. Proje üç fazda ilerleyecektir:
 
-- **Faz 3**: Tek sayfalık portfolyo sitesi — GitHub'a yükleme ve Vercel'de ücretsiz yayınlama
+- **Faz 1**: Tek sayfalık portfolyo sitesi — GitHub'a yükleme ve Vercel'de ücretsiz yayınlama
 - **Faz 2**: Kayıt/giriş sistemi (Firebase Authentication) ve içerik dökümanlarını görüntüleme sayfası
 - **Faz 3**: İçerik yönetimi için admin paneli
 
