@@ -107,5 +107,5 @@ Portfolyo sahibinin site içeriğini kod değiştirmeden güncelleyebileceği ko
 - [x] İlk commit GitHub'a push edildi
 - [x] Patron collaborator olarak eklendi
 - [x] Vercel'de yayınlandı
-- [ ] Faz 2 kodlaması (Firebase Authentication + döküman sayfası)
+- [x] Faz 2 kodlaması (Firebase Authentication + döküman sayfası)
 - [ ] Faz 3 kodlaması (admin paneli)

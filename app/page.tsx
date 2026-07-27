@@ -15,17 +15,35 @@ export default function Home() {
             {about.name}
           </a>
           <nav className="flex gap-6 text-sm text-muted">
-            <a href="#hakkimda" className="transition-colors hover:text-foreground">
+            <a
+              href="#hakkimda"
+              className="transition-colors hover:text-foreground"
+            >
               Hakkımda
             </a>
-            <a href="#yetenekler" className="transition-colors hover:text-foreground">
+            <a
+              href="#yetenekler"
+              className="transition-colors hover:text-foreground"
+            >
               Yetenekler
             </a>
-            <a href="#projeler" className="transition-colors hover:text-foreground">
+            <a
+              href="#projeler"
+              className="transition-colors hover:text-foreground"
+            >
               Projeler
             </a>
-            <a href="#iletisim" className="transition-colors hover:text-foreground">
+            <a
+              href="#iletisim"
+              className="transition-colors hover:text-foreground"
+            >
               İletişim
+            </a>
+            <a
+              href="/giris"
+              className="transition-colors hover:text-foreground"
+            >
+              Giriş
             </a>
           </nav>
         </div>
@@ -36,7 +54,7 @@ export default function Home() {
           id="hero"
           className="flex min-h-[calc(100vh-65px)] flex-col items-center justify-center px-6 text-center"
         >
-          <p className="text-sm font-medium text-accent">Merhaba, ben</p>
+          <p className="text-sm font-medium text-accent">Merhaba, Ben</p>
           <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-6xl">
             {about.name}
           </h1>
@@ -62,7 +80,10 @@ export default function Home() {
           <p className="mt-6 leading-8 text-muted">{about.bio}</p>
         </section>
 
-        <section id="yetenekler" className="mx-auto w-full max-w-5xl px-6 py-24">
+        <section
+          id="yetenekler"
+          className="mx-auto w-full max-w-5xl px-6 py-24"
+        >
           <h2 className="text-2xl font-semibold tracking-tight">Yetenekler</h2>
           <div className="mt-6 flex flex-wrap gap-3">
             {skills.map((skill) => (
@@ -91,10 +112,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="iletisim" className="mx-auto w-full max-w-3xl px-6 py-24 text-center">
+        <section
+          id="iletisim"
+          className="mx-auto w-full max-w-3xl px-6 py-24 text-center"
+        >
           <h2 className="text-2xl font-semibold tracking-tight">İletişim</h2>
           <p className="mt-4 text-muted">
-            Benimle çalışmak veya sohbet etmek isterseniz aşağıdan ulaşabilirsiniz.
+            Benimle çalışmak veya sohbet etmek isterseniz aşağıdan
+            ulaşabilirsiniz.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
