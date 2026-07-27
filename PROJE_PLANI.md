@@ -103,9 +103,9 @@ Portfolyo sahibinin site içeriğini kod değiştirmeden güncelleyebileceği ko
 - [x] Bağımsız git deposu başlatıldı
 - [x] GitHub deposu oluşturuldu ve remote bağlandı
 - [x] Plan dökümanı yazıldı
-- [ ] Next.js projesi oluşturuldu
-- [ ] İlk commit GitHub'a push edildi
-- [ ] Patron collaborator olarak eklendi
-- [ ] Vercel'de yayınlandı
+- [x] Next.js projesi oluşturuldu
+- [x] İlk commit GitHub'a push edildi
+- [x] Patron collaborator olarak eklendi
+- [x] Vercel'de yayınlandı
 - [ ] Faz 2 kodlaması (Firebase Authentication + döküman sayfası)
 - [ ] Faz 3 kodlaması (admin paneli)
