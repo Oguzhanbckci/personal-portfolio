@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { signOut } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -47,20 +48,35 @@ export default function DokumanlarPage() {
 
   return (
     <div className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-6 py-16">
-      <a href="/" className="text-sm text-muted transition-colors hover:text-foreground">
+      <Link
+        href="/"
+        className="text-sm text-muted transition-colors hover:text-foreground"
+      >
         ← Anasayfa
-      </a>
+      </Link>
       <div className="mt-6 flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">Dökümanlar</h1>
-          <p className="mt-1 text-sm text-muted">{user.email} olarak giriş yaptın.</p>
+          <p className="mt-1 text-sm text-muted">
+            {user.email} olarak giriş yaptın.
+          </p>
         </div>
-        <button
-          onClick={() => signOut(auth)}
-          className="rounded-full border border-border px-4 py-2 text-sm transition-colors hover:bg-white/5"
-        >
-          Çıkış Yap
-        </button>
+        <div className="flex items-center gap-3">
+          {user.email === process.env.NEXT_PUBLIC_ADMIN_EMAIL && (
+            <Link
+              href="/admin"
+              className="rounded-full border border-border px-4 py-2 text-sm transition-colors hover:bg-white/5"
+            >
+              Admin Paneli
+            </Link>
+          )}
+          <button
+            onClick={() => signOut(auth)}
+            className="rounded-full border border-border px-4 py-2 text-sm transition-colors hover:bg-white/5"
+          >
+            Çıkış Yap
+          </button>
+        </div>
       </div>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-[200px_1fr]">
@@ -82,7 +98,9 @@ export default function DokumanlarPage() {
 
         <div className="rounded-xl border border-border p-6">
           {!activeDoc ? (
-            <p className="text-muted">Görüntülemek için soldan bir döküman seç.</p>
+            <p className="text-muted">
+              Görüntülemek için soldan bir döküman seç.
+            </p>
           ) : (
             <div>
               <h2 className="font-semibold">{activeDoc.slug}.md</h2>

@@ -1,9 +1,15 @@
-import { getAbout, getContact, getProjects, getSkills } from "@/lib/content";
+import Link from "next/link";
+import { getContact } from "@/lib/content";
+import { getAbout, getProjects, getSkills } from "@/lib/firestore-content";
 
-export default function Home() {
-  const about = getAbout();
-  const skills = getSkills();
-  const projects = getProjects();
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const [about, skills, projects] = await Promise.all([
+    getAbout(),
+    getSkills(),
+    getProjects(),
+  ]);
   const contact = getContact();
   const year = new Date().getFullYear();
 
@@ -39,12 +45,12 @@ export default function Home() {
             >
               İletişim
             </a>
-            <a
+            <Link
               href="/giris"
               className="transition-colors hover:text-foreground"
             >
               Giriş
-            </a>
+            </Link>
           </nav>
         </div>
       </header>
@@ -100,9 +106,9 @@ export default function Home() {
         <section id="projeler" className="mx-auto w-full max-w-5xl px-6 py-24">
           <h2 className="text-2xl font-semibold tracking-tight">Projeler</h2>
           <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
+            {projects.map((project, index) => (
               <div
-                key={project.title}
+                key={index}
                 className="rounded-xl border border-border p-6 transition-colors hover:border-accent/60"
               >
                 <h3 className="font-semibold">{project.title}</h3>

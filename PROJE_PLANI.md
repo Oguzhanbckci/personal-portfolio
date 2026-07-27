@@ -91,9 +91,18 @@ Portfolyo sahibinin site içeriğini kod değiştirmeden güncelleyebileceği ko
 
 ### Planlanan Özellikler
 
-- Sadece admin rolüne sahip kullanıcı (Firebase üzerinde işaretlenecek) `/admin` sayfasına erişebilir
+- Sadece admin e-postasıyla giriş yapmış kullanıcı `/admin` sayfasına erişebilir
 - Hakkımda, yetenekler ve projeler bölümlerindeki içerik bu panelden düzenlenebilir
-- Düzenlemeler `content/*.md` dosyalarına yazılır
+- İletişim bilgileri (`content/contact.md`) admin panelinin kapsamı dışında, statik dosya olarak kalır
+
+### Mimari Karar (Faz 3 uygulamasında güncellendi)
+
+Orijinal planda düzenlemelerin `content/*.md` dosyalarına yazılması öngörülmüştü. Ancak Vercel gibi sunucusuz (serverless) platformlarda çalışan siteler dosya sistemine kalıcı yazma yapamaz — böyle bir tasarım yerelde çalışır ama canlı sitede (Vercel) hiçbir değişikliği kaydetmez. Bu yüzden **Hakkımda, Yetenekler ve Projeler içerikleri Firestore'a (Firebase'in ücretsiz NoSQL veritabanı) taşınıyor**:
+
+- `content/about.md`, `content/skills.md`, `content/projects.md` artık sadece ilk/başlangıç verisi olarak repoda kalıyor (referans amaçlı)
+- Ana sayfa bu üç bölüm için Firestore'daki `content` koleksiyonundan (`about`, `skills`, `projects` dokümanları) veri okuyacak şekilde güncellendi; sayfa her istekte taze veri göstersin diye dinamik render'a alındı
+- Admin paneli, giriş yapan kullanıcının tarayıcısından doğrudan Firestore'a yazıyor — güvenlik, sadece arayüzde gizlemekle değil, **Firestore Security Rules** ile sağlanıyor: okuma herkese açık, yazma sadece admin e-postasıyla doğrulanmış kullanıcıya izinli
+- `content/contact.md` kapsam dışı bırakıldığı için (plandaki gibi) statik dosya olarak kalmaya devam ediyor
 
 ---
 
@@ -108,4 +117,4 @@ Portfolyo sahibinin site içeriğini kod değiştirmeden güncelleyebileceği ko
 - [x] Patron collaborator olarak eklendi
 - [x] Vercel'de yayınlandı
 - [x] Faz 2 kodlaması (Firebase Authentication + döküman sayfası)
-- [ ] Faz 3 kodlaması (admin paneli)
+- [x] Faz 3 kodlaması (admin paneli, Firestore tabanlı)

@@ -1,6 +1,7 @@
 "use client";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, type FormEvent } from "react";
 import { getAuthErrorMessage } from "@/lib/auth-errors";
@@ -37,9 +38,9 @@ export default function KayitPage() {
 
   return (
     <div className="mx-auto flex w-full max-w-sm flex-1 flex-col justify-center px-6 py-24">
-      <a href="/" className="text-sm text-muted transition-colors hover:text-foreground">
+      <Link href="/" className="text-sm text-muted transition-colors hover:text-foreground">
         ← Anasayfa
-      </a>
+      </Link>
       <h1 className="mt-6 text-2xl font-semibold tracking-tight">Kayıt Ol</h1>
       <form onSubmit={handleSubmit} className="mt-8 flex flex-col gap-4">
         <input
@@ -70,9 +71,9 @@ export default function KayitPage() {
       </form>
       <p className="mt-6 text-sm text-muted">
         Zaten hesabın var mı?{" "}
-        <a href="/giris" className="text-accent hover:underline">
+        <Link href="/giris" className="text-accent hover:underline">
           Giriş yap
-        </a>
+        </Link>
       </p>
     </div>
   );
